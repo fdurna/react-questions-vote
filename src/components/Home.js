@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getQes } from '../redux/actions/QesAction';
+import React from "react";
+import { Link } from "react-router-dom";
+import QesList from "./QesList";
 
 function Home() {
-
-  const {qes,loading} = useSelector((state) => state.QesReducers);
-  const dispatch = useDispatch();
-  console.log(qes)
-  useEffect(()=> {
-    dispatch(getQes())
-},[dispatch])
-
   return (
-    <div>Home</div>
-  )
+    <div className="card-container">
+      <div className="add-button">
+        <Link to="/add" className="add-new">
+          <i className="fa-solid fa-plus"></i>
+          <span>Add New</span>
+        </Link>
+      </div>
+      <QesList />
+    </div>
+  );
 }
 
-export default Home
+export default Home;
