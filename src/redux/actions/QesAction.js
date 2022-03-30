@@ -5,7 +5,6 @@ export const getQes = () => async (dispatch) => {
     dispatch({type:actions.GET_QES_REQUEST})
     try {
         const data = await axios.get('https://polls.apiblueprint.org/questions');
-        console.log(data)
         dispatch({
             type:actions.GET_QES_SUCCESS,
             payload:data
